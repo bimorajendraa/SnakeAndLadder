@@ -17,6 +17,9 @@ public class SnLGUI extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(2, 2));
 
+        JLabel imageLabel = new JLabel(new ImageIcon("image/logoSnL.png"));
+        panel.add(imageLabel, BorderLayout.NORTH);
+
         JLabel label = new JLabel("Enter number of players (2-5): ");
         panel.add(label);
 

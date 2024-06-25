@@ -12,27 +12,34 @@ public class PlayerNamesGUI extends JFrame {
         this.numPlayers = numPlayers;
 
         setTitle("Snakes and Ladders");
-        setSize(400, 200);
+        setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(numPlayers + 1, 2));
+        panel.setLayout(new BorderLayout());
+
+        // Add image in the panel
+        JLabel imageLabel = new JLabel(new ImageIcon("image/logoSnL.png"));
+        panel.add(imageLabel, BorderLayout.NORTH);
+
+        JPanel inputPanel = new JPanel();
+        inputPanel.setLayout(new GridLayout(numPlayers + 1, 2));
 
         playerFields = new JTextField[numPlayers];
 
         for (int i = 0; i < numPlayers; i++) {
             JLabel label = new JLabel("Enter name for Player " + (i + 1) + ": ");
-            panel.add(label);
+            inputPanel.add(label);
 
             playerFields[i] = new JTextField();
-            panel.add(playerFields[i]);
+            inputPanel.add(playerFields[i]);
         }
 
         startButton = new JButton("Start Game");
-        panel.add(startButton);
+        inputPanel.add(startButton);
 
-        add(panel);
+        panel.add(inputPanel, BorderLayout.CENTER);
 
         startButton.addActionListener(new ActionListener() {
             @Override
@@ -46,6 +53,7 @@ public class PlayerNamesGUI extends JFrame {
             }
         });
 
+        setContentPane(panel);
         setVisible(true);
     }
 }

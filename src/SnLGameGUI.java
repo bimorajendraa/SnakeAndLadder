@@ -37,7 +37,6 @@ public class SnLGameGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (game.getGameStatus() == 2) {
-                    gameLog.append("Game is over. Winner: " + game.getWhoseTurn().getName() + "\n");
                     rollButton.setEnabled(false);
                     return;
                 }
@@ -45,10 +44,12 @@ public class SnLGameGUI extends JFrame {
                 gameLog.append("Now Playing: " + playerInTurn.getName() + "\n");
                 int diceRoll = playerInTurn.rollDice();
                 gameLog.append(playerInTurn.getName() + " rolled a " + diceRoll + "\n");
+                SoundPlayer.playSound("sound/diceRolling.wav");
                 game.movePlayerAround(playerInTurn, diceRoll);
                 gameLog.append(playerInTurn.getName() + " moved to position " + playerInTurn.getPosition() + "\n");
                 if (game.getGameStatus() == 2) {
                     gameLog.append("The winner is: " + playerInTurn.getName() + "\n");
+                    SoundPlayer.playSound("sound/winBackSound.wav");
                 }
                 gameLog.append("==============================================\n");
             }
