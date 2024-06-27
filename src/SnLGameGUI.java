@@ -40,21 +40,42 @@ public class SnLGameGUI extends JFrame {
                     rollButton.setEnabled(false);
                     return;
                 }
+
                 Player playerInTurn = game.getWhoseTurn();
-                gameLog.append("Now Playing: " + playerInTurn.getName() + "\n");
-                int diceRoll = playerInTurn.rollDice();
-                gameLog.append(playerInTurn.getName() + " rolled a " + diceRoll + "\n");
-                SoundPlayer.playSound("sound/diceRolling.wav");
-                game.movePlayerAround(playerInTurn, diceRoll);
-                gameLog.append(playerInTurn.getName() + " moved to position " + playerInTurn.getPosition() + "\n");
-                if (game.getGameStatus() == 2) {
-                    gameLog.append("The winner is: " + playerInTurn.getName() + "\n");
-                    SoundPlayer.playSound("sound/winBackSound.wav");
+                boolean continuePlaying;
+
+                do {
+                    continuePlaying = false;
+                    gameLog.append("Now Playing: " + playerInTurn.getName() + "\n");
+                    int diceRoll = playerInTurn.rollDice();
+                    gameLog.append(playerInTurn.getName() + " rolled a " + diceRoll + "\n");
+                    SoundPlayer.playSound("sound/diceRolling.wav");
+                    game.movePlayerAround(playerInTurn, diceRoll);
+                    gameLog.append(playerInTurn.getName() + " moved to position " + playerInTurn.getPosition() + "\n");
+                    if (game.getGameStatus() == 2) {
+                        gameLog.append("The winner is: " + playerInTurn.getName() + "\n");
+                        SoundPlayer.playSound("sound/winBackSound.wav");
+                    }
+                    gameLog.append("==============================================\n");
+
+                    if (diceRoll == 6 && game.getGameStatus() != 2) {
+                        gameLog.append(playerInTurn.getName() + ": rolled a 6 and gets another turn!\n");
+                        gameLog.append("==============================================\n");
+                        continuePlaying = true;
+                    }
+                } while (continuePlaying);
+
+                if (game.getGameStatus() != 2) {
+                    game.getWhoseTurn();
                 }
-                gameLog.append("==============================================\n");
             }
         });
 
         setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        String[] playerNames = {"Player 1", "Player 2", "Player 3", "Player 4", "Player 5"};
+        new SnLGameGUI(playerNames);
     }
 }

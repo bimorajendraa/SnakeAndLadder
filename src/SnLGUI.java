@@ -10,26 +10,31 @@ public class SnLGUI extends JFrame {
 
     public SnLGUI() {
         setTitle("Snakes and Ladders");
-        setSize(400, 200);
+        setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(2, 2));
-
+        // Create a panel for the image and add it to the top of the frame
         JLabel imageLabel = new JLabel(new ImageIcon("image/logoSnL.png"));
-        panel.add(imageLabel, BorderLayout.NORTH);
+        JPanel imagePanel = new JPanel();
+        imagePanel.add(imageLabel);
+        add(imagePanel, BorderLayout.NORTH);
+
+        // Create a panel for the input fields and button
+        JPanel inputPanel = new JPanel();
+        inputPanel.setLayout(new GridLayout(2, 2));
 
         JLabel label = new JLabel("Enter number of players (2-5): ");
-        panel.add(label);
+        inputPanel.add(label);
 
         numPlayersField = new JTextField();
-        panel.add(numPlayersField);
+        inputPanel.add(numPlayersField);
 
         submitButton = new JButton("Submit");
-        panel.add(submitButton);
+        inputPanel.add(submitButton);
 
-        add(panel);
+        // Add the input panel to the center of the frame
+        add(inputPanel, BorderLayout.CENTER);
 
         submitButton.addActionListener(new ActionListener() {
             @Override
