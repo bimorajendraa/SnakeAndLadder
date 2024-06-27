@@ -5,13 +5,14 @@
  * Group Capstone Project: Snake and Ladder Game
  * -----------------------------------------------------
  * Class    : D
- * Group    : XX
+ * Group    : 2
  * Members  :
- * 1. Student ID - Full Name
- * 2. Student ID - Full Name
- * 3. Student ID - Full Name
+ * 1. 5026231210 - Bimo Rajendra Widyadhana
+ * 2. 5026221206 - Marcellino SP. Pasaribu
+ * 3. 5026231176 - Harya Raditya Handoyo
  * ------------------------------------------------------
  */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
