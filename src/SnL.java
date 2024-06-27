@@ -154,14 +154,24 @@ public class SnL {
             if (p.getPosition() == l.getBottomPosition()) {
                 System.out.println(p.getName() + " you got Ladder from: " + l.getBottomPosition() + " To: " + l.getTopPosition());
                 p.setPosition(l.getTopPosition());
+                p.setScore(p.getScore() + 5);
             }
         }
         for (Snake s : this.snakes) {
             if (p.getPosition() == s.getHeadPosition()) {
                 p.setPosition(s.getTailPosition());
+                p.setScore(p.getScore() - 15);
                 System.out.println(p.getName() + " you get snake head from " + s.getHeadPosition() + " slide down to " + s.getTailPosition());
             }
         }
+        if (p.getScore() <= 0) {
+            System.out.println(p.getName() + " has been eliminated!");
+            this.players.remove(p);
+        }
+        if (p.getPosition() == this.boardSize){
+            this.gameStatus = 2;
+        }
+
         if (p.getPosition() == this.boardSize) {
             this.gameStatus = 2;
         }

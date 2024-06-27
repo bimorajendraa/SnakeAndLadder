@@ -67,6 +67,7 @@ public class SnLGameGUI extends JFrame {
                     SoundPlayer.playSound("sound/diceRolling.wav");
                     game.movePlayerAround(playerInTurn, diceRoll);
                     gameLog.append(playerInTurn.getName() + " moved to position " + playerInTurn.getPosition() + "\n");
+                    gameLog.append("Score: " + playerInTurn.getScore() + "\n");
                     if (game.getGameStatus() == 2) {
                         gameLog.append("The winner is: " + playerInTurn.getName() + "\n");
                         SoundPlayer.playSound("sound/winBackSound.wav");
@@ -87,10 +88,5 @@ public class SnLGameGUI extends JFrame {
         });
 
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        String[] playerNames = {"Player 1", "Player 2", "Player 3", "Player 4", "Player 5"};
-        new SnLGameGUI(playerNames);
     }
 }
