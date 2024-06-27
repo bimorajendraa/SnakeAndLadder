@@ -10,11 +10,11 @@ Feature
   <li>GUI yang terdiri dari 3 laman</li>
 </ul>
 
-<a>Laman input player</a>
+<h3>Laman input player</h3>
 ![Screenshot 2024-06-28 002527](https://github.com/bimorajendraa/SnakeAndLadder/assets/87067815/50dd7220-ed7a-4ce0-a37b-69215f59f5fe)
 
-<a>Laman input nama nama player</a>
+<h3>Laman input nama nama player</h3>
 ![Screenshot 2024-06-28 002540](https://github.com/bimorajendraa/SnakeAndLadder/assets/87067815/9b0aed4d-bf16-423a-b76e-df435da62d98)
 
-<a>laman game</a>
+<h3>laman game</h3>
 ![Screenshot 2024-06-28 002604](https://github.com/bimorajendraa/SnakeAndLadder/assets/87067815/501761de-2f3d-401c-aae1-d15bc839f751)
